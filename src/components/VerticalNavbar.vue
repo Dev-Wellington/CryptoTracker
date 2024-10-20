@@ -1,13 +1,19 @@
+<script setup>
+import { ref } from "vue";
+const clicar = ref(false);
+
+const click = () => {
+  clicar.value = !clicar.value;
+};
+</script>
+
 <template>
-  <div>
-    <nav
-      class="navbar-vertical"
-      :class="{ 'navbar-vertical__extendido': clicar }"
-    >
+  <div class="container">
+    <nav class="navbar-vertical" :class="{ 'navbar-vertical__extend': clicar }">
       <div class="navbar-vertical__menu-container">
         <div class="navbar-vertical__item navbar-vertical__item--menu">
           <button class="navbar-vertical__menu-button" @click="click">
-            <img src="../assets/icons/menu.svg" alt="" srcset="" />
+            <img src="../assets/icons/menu.svg" alt="" />
           </button>
           <p class="navbar-vertical__item-text" v-if="clicar">Menu</p>
         </div>
@@ -62,23 +68,7 @@
   </div>
 </template>
 
-<script setup>
-import { ref } from "vue";
-const clicar = ref(false);
-
-const click = () => {
-  clicar.value = !clicar.value;
-};
-
-</script>
-
 <style lang="css" scoped>
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 li {
   list-style: none;
 }
@@ -87,26 +77,29 @@ li {
   flex-direction: column;
   justify-content: space-between;
   height: 100dvh;
-  padding:20px 10px 50px 10px;
+  padding: clamp(10px, 2vw, 20px) clamp(5px, 1vw, 10px) clamp(25px, 5vw, 50px)
+    clamp(5px, 1vw, 10px);
   background-color: #022213;
   color: white;
 }
-.navbar-vertical__extendido {
-  width: 300px;
+
+.navbar-vertical__extend {
+  width: clamp(150px, 20vw, 300px);
   max-width: 300px;
-  padding:20px 10px 50px 10px;
+  padding: clamp(10px, 2vw, 20px) clamp(5px, 1vw, 10px) clamp(25px, 5vw, 50px)
+    clamp(5px, 1vw, 10px);
 }
 .navbar-vertical__item,
 .navbar-vertical__dark-mode-container {
   display: flex;
   align-items: center;
   justify-content: start;
-  gap: 15px;
+  gap: clamp(5px, 1.5vw, 15px);
 }
 .navbar-vertical__menu-container {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: clamp(10px, 3vw, 30px);
 }
 .navbar-vertical__item--menu,
 .navbar-vertical__item--profile,
@@ -114,13 +107,13 @@ li {
 .navbar-vertical__item--communities,
 .navbar-vertical__item--notifications,
 .navbar-vertical__dark-mode-container {
-  padding: 10px ;
+  padding: clamp(5px, 1.5vw, 10px);
   border-radius: 5px;
 }
 .navbar-vertical__list {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: clamp(10px, 3vw, 25px);
 }
 .navbar-vertical__item:hover,
 .navbar-vertical__dark-mode-container:hover {
@@ -134,11 +127,7 @@ li {
 }
 
 .navbar-vertical__item-text {
-  font-size: 28px;
-}
-
-.ativo {
-  width: 300px;
+  font-size: clamp(14px, 2vw, 28px);
 }
 .navbar-vertical__button,
 .navbar-vertical__menu-button,
@@ -146,5 +135,9 @@ li {
   border: none;
   background-color: #022213;
   cursor: pointer;
+}
+button > img {
+  width: clamp(18px, 3vw, 45px);
+  height: clamp(18px, 3vw, 45px);
 }
 </style>
