@@ -39,8 +39,8 @@ const fetchCryptos = async () => {
 };
 
 const onScroll = (event) => {
-  const { top, height, cHeight } = event.target;
-  if (top + cHeight >= height - 5) {
+  const { scrollTop, scrollHeight, clientHeight } = event.target;
+  if (scrollTop + clientHeight >= scrollHeight - 5) {
     fetchCryptos();
   }
 };
