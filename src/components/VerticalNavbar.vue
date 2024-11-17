@@ -13,7 +13,7 @@ const click = () => {
       <div class="navbar-vertical__menu-container">
         <div class="navbar-vertical__item navbar-vertical__item--menu">
           <button class="navbar-vertical__menu-button" @click="click">
-            <img src="../assets/icons/menu.svg" alt="" />
+            <img src="../assets/icons/menu.svg" alt="Menu Icon" />
           </button>
           <p class="navbar-vertical__item-text" v-if="clicar">Menu</p>
         </div>
@@ -21,13 +21,13 @@ const click = () => {
           <ul class="navbar-vertical__list">
             <li class="navbar-vertical__item navbar-vertical__item--profile">
               <button class="navbar-vertical__button">
-                <img src="../assets/icons/profile.svg" alt="" />
+                <img src="../assets/icons/profile.svg" alt="Profile Icon" />
               </button>
               <p class="navbar-vertical__item-text" v-if="clicar">Profile</p>
             </li>
             <li class="navbar-vertical__item navbar-vertical__item--wallet">
               <button class="navbar-vertical__button">
-                <img src="../assets/icons/wallet.svg" alt="" />
+                <img src="../assets/icons/wallet.svg" alt="Wallet Icon" />
               </button>
               <p class="navbar-vertical__item-text" v-if="clicar">Wallets</p>
             </li>
@@ -35,7 +35,10 @@ const click = () => {
               class="navbar-vertical__item navbar-vertical__item--communities"
             >
               <button class="navbar-vertical__button">
-                <img src="../assets/icons/communities.svg" alt="" />
+                <img
+                  src="../assets/icons/communities.svg"
+                  alt="Communities Icon"
+                />
               </button>
               <p class="navbar-vertical__item-text" v-if="clicar">
                 Communities
@@ -45,7 +48,10 @@ const click = () => {
               class="navbar-vertical__item navbar-vertical__item--notifications"
             >
               <button class="navbar-vertical__button">
-                <img src="../assets/icons/notifications.svg" alt="" />
+                <img
+                  src="../assets/icons/notifications.svg"
+                  alt="Notifications Icon"
+                />
               </button>
               <p class="navbar-vertical__item-text" v-if="clicar">
                 Notifications
@@ -59,7 +65,7 @@ const click = () => {
           <img
             class="navbar-vertical__dark-mode-icon"
             src="../assets/icons/light_mode.svg"
-            alt=""
+            alt="Change mode Icon"
           />
         </button>
         <p class="navbar-vertical__item-text" v-if="clicar">Mode</p>
@@ -69,6 +75,9 @@ const click = () => {
 </template>
 
 <style lang="css" scoped>
+.container {
+  margin-right: 6%;
+}
 li {
   list-style: none;
 }
@@ -76,11 +85,14 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   height: 100dvh;
   padding: clamp(10px, 2vw, 20px) clamp(5px, 1vw, 10px) clamp(25px, 5vw, 50px)
     clamp(5px, 1vw, 10px);
+  width: clamp(50px, 100%, 85px);
   background-color: #022213;
   color: white;
+  transition: width 0.5s ease-in-out;
 }
 
 .navbar-vertical__extend {
@@ -88,6 +100,7 @@ li {
   max-width: 300px;
   padding: clamp(10px, 2vw, 20px) clamp(5px, 1vw, 10px) clamp(25px, 5vw, 50px)
     clamp(5px, 1vw, 10px);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
 }
 .navbar-vertical__item,
 .navbar-vertical__dark-mode-container {
