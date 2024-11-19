@@ -90,8 +90,8 @@ li {
   padding: clamp(10px, 2vw, 20px) clamp(5px, 1vw, 10px) clamp(25px, 5vw, 50px)
     clamp(5px, 1vw, 10px);
   width: clamp(50px, 100%, 85px);
-  background-color: #022213;
-  color: white;
+  background-color: var(--bg-navbar);
+  color: var(--text-color-coins);
   transition: width 0.5s ease-in-out;
 }
 
@@ -130,12 +130,12 @@ li {
 }
 .navbar-vertical__item:hover,
 .navbar-vertical__dark-mode-container:hover {
-  background-color: #011b0f;
+  background-color: var(--bg-navbar-icon-hover);
   & img {
-    background-color: #011b0f;
+    background-color: var(--bg-navbar-icon-hover);
   }
   & button {
-    background-color: #011b0f;
+    background-color: var(--bg-navbar-icon-hover);
   }
 }
 
@@ -146,7 +146,7 @@ li {
 .navbar-vertical__menu-button,
 .navbar-vertical__dark-mode-button {
   border: none;
-  background-color: #022213;
+  background-color: var(--bg-navbar);
   cursor: pointer;
 }
 button > img {
