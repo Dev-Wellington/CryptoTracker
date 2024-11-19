@@ -2,10 +2,50 @@
 :root {
   font-family: "Space Grotesk", sans-serif;
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #f0f0f0;
+  
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+ 
+  --text-color:#011B0F;
+  --text-color-coins:#f0f0f0;
+  --bg-color:#f0f0f0;
+  --bg-navbar:#022213;
+  --bg-navbar-icon:#011B0F;
+  --bg-search:#011B0F;
+  --bg-profile:#011B0F;
+  --bg-profile-name:#b0ec69;
+  --bg-ranking:#011B0F;
+  --bg-ranking-item:#022213;
+  --bg-list:#032917;
+  --bg-list-item:#022213;
+  --bg-list-stats:#011B0F;
+  --bg-chart:#022213;
+  --bg-chart-item:#b0ec69;
+  --bg-buttons: #b0ec69;
+  --bg-buttons-hover: #b0ec69;
+  --bg-buttons-container:#011B0F;
+
+}
+.dark{
+  --text-color:#B0004A;
+  --text-color-coins:#f0f0f0;
+  --bg-color:#1A1A1A;
+  --bg-navbar:#D80059;
+  --bg-navbar-icon:#B0004A;
+  --bg-search:#B0004A;
+  --bg-profile:#B0004A;
+  --bg-profile-name:#D80059;
+  --bg-ranking:#B0004A;
+  --bg-ranking-item:#D80059;
+  --bg-list:#8A003B;
+  --bg-list-item:#D80059;
+  --bg-list-stats:#B0004A;
+  --bg-chart:#D80059;
+  --bg-chart-item:#FFA7C9;
+  --bg-buttons: #FFA7C9;
+  --bg-buttons-hover: #FFA7C9;
+  --bg-buttons-container:#B0004A;
 }
 * {
   margin: 0;
@@ -16,4 +56,5 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: var(--bg-color);
 }
