@@ -37,7 +37,7 @@ form {
   justify-content: flex-end;
   gap: clamp(10px, 3vw, 30px);
   width: 100%;
-  background-color: #011b0f;
+  background-color: var(--bg-search);
   padding: clamp(10px, 2vw, 20px);
 }
 
@@ -46,7 +46,7 @@ input {
   width: clamp(300px, 50%, 700px);
   height: clamp(18px, 3vw, 75px);
   background-color: #f0f0f0;
-  color: #011b0f;
+  color: var(--text-color);
   border-radius: 15px;
   font-size: clamp(12px, 2vw, 16px);
   border: none;
@@ -54,7 +54,7 @@ input {
 }
 
 input::placeholder {
-  color: #011b0f;
+  color: var(--text-color);
   font-size: clamp(12px, 2vw, 16px);
 }
 
@@ -72,7 +72,7 @@ input::placeholder {
 }
 
 .btn:hover {
-  filter: drop-shadow(0 0 10px #b0ec69);
+  filter: drop-shadow(0 0 10px var(--bg-buttons-hover));
 }
 
 @media (width <= 480px) {
