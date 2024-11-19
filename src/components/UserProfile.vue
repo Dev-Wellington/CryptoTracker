@@ -47,7 +47,7 @@
   width: clamp(250px, 40%, 335px);
   height: clamp(200px, 40vh, 355px);
   border-radius: 35px;
-  background-color: #011b0f;
+  background-color: var(--bg-profile)
 }
 
 .user-profile__image {
@@ -76,12 +76,12 @@
   width: clamp(130px, 75%, 200px);
   height: clamp(20px, 25%, 40px);
   border-radius: clamp(25px, 5vw, 50px);
-  background-color: #b0ec69;
+  background-color: var(--bg-profile-name);
 }
 
 .user-profile__name h3 {
   font-size: clamp(1.2rem, 3vw, 1.6rem);
-  color: #011b0f;
+  color: var(--text-color);
 }
 
 .social-links__list {
