@@ -77,7 +77,7 @@ onMounted(() => {
 
   width: clamp(250px, 40%, 335px);
   height: clamp(200px, 40vh, 355px);
-  background-color: #011b0f;
+  background-color: var(--bg-ranking);
   border-radius: 35px;
   padding: 20px 0;
 }
@@ -91,7 +91,7 @@ onMounted(() => {
   justify-content: flex-start;
   padding-left: clamp(16px, 2vw, 18px);
   gap: 8px;
-  background-color: #022213;
+  background-color: var(--bg-ranking-item);
   position: relative;
 }
 .crypto-ranking__position {
@@ -102,8 +102,8 @@ onMounted(() => {
   width: clamp(15%, 5vw, 25%);
   height: clamp(20%, 5vw, 30%);
   border-radius: 8px 25px 0 25px;
-  background-color: #f0f0f0;
-  color: #011b0f;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   display: flex;
   align-items: center;
   justify-content: center;
