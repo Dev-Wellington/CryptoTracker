@@ -91,9 +91,9 @@ onMounted(() => {
 .crypto-list {
   width: clamp(300px, 60vw, 875px);
   height: clamp(200px, 40vh, 355px);
-  background-color: #032917;
+  background-color: var(--bg-list);
   overflow-y: scroll;
-  scrollbar-color: #b0ec69 #032917;
+  scrollbar-color: var(--bg-list-item-hover-icon) var(--bg-list);
   border-radius: 35px 0 0 35px;
   display: flex;
   flex-direction: column;
@@ -102,7 +102,7 @@ onMounted(() => {
   transition: background-color 0.3s;
 }
 .crypto-list__item:hover {
-  background-color: #033f28;
+  background-color: var(--bg-list-item-hover);
 }
 .crypto-list__item {
   display: flex;
@@ -112,7 +112,7 @@ onMounted(() => {
   min-height: 100px;
   width: 100%;
   border-radius: 25px;
-  background-color: #022213;
+  background-color: var(--bg-list-item);
 }
 .crypto-list__item-header {
   display: flex;
@@ -138,7 +138,7 @@ onMounted(() => {
   flex-direction: row;
   align-items: center;
   justify-content: end;
-  background-color: #011b0f;
+  background-color: var(--bg-list-stats);
   border-radius: 0 0 0 65px;
   width: 100%;
   height: 100%;
@@ -152,7 +152,7 @@ onMounted(() => {
   gap: 5px;
 }
 h3 {
-  color: #f0f0f0;
+  color: var(--text-color-coins);
   font-size: clamp(1.1rem, 2vw, 1.7rem);
 }
 p {
@@ -172,7 +172,7 @@ p {
   background-size: clamp(1rem, 5vw, 4rem) clamp(1rem, 5vw, 4rem);
 }
 .crypto-list__item-options-icon:hover {
-  filter: drop-shadow(0 0 1px #b0ec69);
+  filter: drop-shadow(0 0 1px var(--bg-list-item-hover-icon));
 }
 .crypto-list__item-percentage.positive p {
   color: #4caf50;
