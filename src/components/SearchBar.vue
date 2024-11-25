@@ -52,7 +52,9 @@ input {
   border: none;
   padding-left: clamp(10px, 2vw, 20px);
 }
-
+input:focus {
+  outline: none;
+}
 input::placeholder {
   color: var(--text-color);
   font-size: clamp(12px, 2vw, 16px);

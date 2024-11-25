@@ -7,6 +7,7 @@ Chart.register(...registerables);
 
 const props = defineProps({
   moeda: String,
+  darkMode: Boolean,
 });
 
 const cryptoChart = ref(null);
@@ -41,14 +42,27 @@ const fetchChartData = async (days) => {
 };
 
 const updateChart = (data) => {
+  const bgButtons = getComputedStyle(document.documentElement)
+    .getPropertyValue("--bg-buttons")
+    .trim();
+  const textNumberChart = getComputedStyle(document.documentElement)
+    .getPropertyValue("--text-number-chart")
+    .trim();
+  const bgGradientTop = getComputedStyle(document.documentElement)
+    .getPropertyValue("--bg-gradient-top")
+    .trim();
+  const bgGradientBottom = getComputedStyle(document.documentElement)
+    .getPropertyValue("--bg-gradient-bottom")
+    .trim();
+
   if (chartInstance) {
     chartInstance.destroy();
   }
 
   const ctx = cryptoChart.value.getContext("2d");
   const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-  gradient.addColorStop(0, "rgba(176, 236, 105, 0.6)");
-  gradient.addColorStop(1, "rgba(2, 34, 19, 0.1)");
+  gradient.addColorStop(0, bgGradientTop);
+  gradient.addColorStop(1, bgGradientBottom);
 
   chartInstance = new Chart(cryptoChart.value, {
     type: "line",
@@ -58,7 +72,7 @@ const updateChart = (data) => {
         {
           label: `Preço da ${props.moeda} (USD)`,
           data: data.values,
-          borderColor: "#b0ec69",
+          borderColor: bgButtons,
           backgroundColor: gradient,
           fill: true,
           tension: 0.3,
@@ -75,7 +89,7 @@ const updateChart = (data) => {
         x: { display: false },
         y: {
           grid: { display: false },
-          ticks: { color: "#b0ec69" },
+          ticks: { color: textNumberChart },
         },
       },
     },
@@ -88,6 +102,14 @@ watch(
     fetchChartData("365");
   }
 );
+
+watch(
+  () => props.darkMode,
+  () => {
+    fetchChartData("365");
+  }
+);
+
 onMounted(() => {
   fetchChartData("365");
 });
@@ -125,7 +147,7 @@ onMounted(() => {
   align-items: center;
   justify-content: flex-start;
   padding: 15px 30px;
-  background-color: #022213;
+  background-color: var(--bg-chart);
   position: relative;
 }
 .grafico {
@@ -141,11 +163,12 @@ canvas {
   max-width: 100%;
   max-height: 100%;
 }
+
 .buttons__position {
   position: absolute;
   right: 0;
   top: 0;
-  background-color: #011b0f;
+  background-color: var(--bg-buttons-container);
   border-radius: 0 35px 0 65px;
   width: 50%;
   height: 25%;
@@ -163,24 +186,25 @@ canvas {
   font-size: 24px;
   width: 75px;
   height: 38px;
-  background-color: #b0ec69;
-  color: #011b0f;
+  background-color: var(--bg-buttons);
+  color: var(--text-color);
   border: none;
   border-radius: 50px;
   cursor: pointer;
 }
 .btn:hover {
-  background-color: #8fdc5a;
+  background-color: var(--bg-buttons-hover);
 }
 .btn__all {
   cursor: not-allowed;
   background-color: #6a6a6a;
+  color: #f0f0f0;
 }
 .btn__all:hover {
   background-color: #6a6a6a;
 }
 .btn__all:disabled {
-  opacity: 0.6;
+  opacity: 0.8;
 }
 @media (max-width: 1024px) {
   .buttons__position {

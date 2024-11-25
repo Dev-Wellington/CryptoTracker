@@ -81,7 +81,7 @@
 
 .user-profile__name h3 {
   font-size: clamp(1.2rem, 3vw, 1.6rem);
-  color: var(--text-color);
+  color: var(--text-name);
 }
 
 .social-links__list {

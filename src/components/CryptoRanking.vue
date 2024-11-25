@@ -102,7 +102,7 @@ onMounted(() => {
   width: clamp(15%, 5vw, 25%);
   height: clamp(20%, 5vw, 30%);
   border-radius: 8px 25px 0 25px;
-  background-color: var(--bg-color);
+  background-color: #f0f0f0;
   color: var(--text-color);
   display: flex;
   align-items: center;

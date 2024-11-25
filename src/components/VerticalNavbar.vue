@@ -13,7 +13,7 @@ const click = () => {
       <div class="navbar-vertical__menu-container">
         <div class="navbar-vertical__item navbar-vertical__item--menu">
           <button class="navbar-vertical__menu-button" @click="click">
-            <img src="../assets/icons/menu.svg" alt="Menu Icon" />
+            <img :src="colorMode" alt="Menu Icon" />
           </button>
           <p class="navbar-vertical__item-text" v-if="clicar">Menu</p>
         </div>
@@ -21,13 +21,13 @@ const click = () => {
           <ul class="navbar-vertical__list">
             <li class="navbar-vertical__item navbar-vertical__item--profile">
               <button class="navbar-vertical__button">
-                <img src="../assets/icons/profile.svg" alt="Profile Icon" />
+                <img :src="colorMode" alt="Profile Icon" />
               </button>
               <p class="navbar-vertical__item-text" v-if="clicar">Profile</p>
             </li>
             <li class="navbar-vertical__item navbar-vertical__item--wallet">
               <button class="navbar-vertical__button">
-                <img src="../assets/icons/wallet.svg" alt="Wallet Icon" />
+                <img :src="colorMode" alt="Wallet Icon" />
               </button>
               <p class="navbar-vertical__item-text" v-if="clicar">Wallets</p>
             </li>
@@ -35,10 +35,7 @@ const click = () => {
               class="navbar-vertical__item navbar-vertical__item--communities"
             >
               <button class="navbar-vertical__button">
-                <img
-                  src="../assets/icons/communities.svg"
-                  alt="Communities Icon"
-                />
+                <img :src="colorMode" alt="Communities Icon" />
               </button>
               <p class="navbar-vertical__item-text" v-if="clicar">
                 Communities
@@ -48,10 +45,7 @@ const click = () => {
               class="navbar-vertical__item navbar-vertical__item--notifications"
             >
               <button class="navbar-vertical__button">
-                <img
-                  src="../assets/icons/notifications.svg"
-                  alt="Notifications Icon"
-                />
+                <img :src="colorMode" alt="Notifications Icon" />
               </button>
               <p class="navbar-vertical__item-text" v-if="clicar">
                 Notifications
@@ -64,7 +58,7 @@ const click = () => {
         <button class="navbar-vertical__dark-mode-button">
           <img
             class="navbar-vertical__dark-mode-icon"
-            src="../assets/icons/light_mode.svg"
+            :src="colorMode"
             alt="Change mode Icon"
           />
         </button>

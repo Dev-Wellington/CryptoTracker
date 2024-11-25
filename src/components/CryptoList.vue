@@ -167,7 +167,7 @@ p {
   width: clamp(1rem, 5vw, 4rem);
   border: none;
   background-color: transparent;
-  background-image: url("../assets/icons/button.svg");
+  background-image: url("../assets/icons/light/button.svg");
   background-repeat: no-repeat;
   background-size: clamp(1rem, 5vw, 4rem) clamp(1rem, 5vw, 4rem);
 }
