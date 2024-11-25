@@ -9,9 +9,20 @@ import CryptoList from "./components/CryptoList.vue";
 import CryptoRanking from "./components/CryptoRanking.vue";
 
 const moeda = ref("polkadot");
+const darkMode = ref(false);
+
+const toggleDarkMode = () => {
+  darkMode.value = !darkMode.value;
+  if (darkMode.value) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+};
 </script>
 
 <template>
+  <button @click="toggleDarkMode">Toggle Dark Mode</button>
   <div class="grid-container">
     <VerticalNavbar class="verticalNavbar1" />
     <VerticalNavbar class="verticalNavbar" />
@@ -19,7 +30,7 @@ const moeda = ref("polkadot");
 
     <div class="main-content">
       <div class="left-section">
-        <CryptoChart :moeda="moeda" class="cryptoChart" />
+        <CryptoChart :moeda="moeda" :darkMode="darkMode" class="cryptoChart" />
         <UserProfile class="userProfile" />
       </div>
       <div class="right-section">
