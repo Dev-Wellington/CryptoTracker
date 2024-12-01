@@ -39,6 +39,8 @@ form {
   width: 100%;
   background-color: var(--bg-search);
   padding: clamp(10px, 2vw, 20px);
+  transition: background-color 0.3s;
+
 }
 
 input {
