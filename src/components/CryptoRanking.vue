@@ -78,6 +78,8 @@ onMounted(() => {
   width: clamp(250px, 40%, 335px);
   height: clamp(200px, 40vh, 355px);
   background-color: var(--bg-ranking);
+  transition: background-color 0.3s;
+
   border-radius: 35px;
   padding: 20px 0;
 }
