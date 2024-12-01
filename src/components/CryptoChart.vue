@@ -148,6 +148,8 @@ onMounted(() => {
   justify-content: flex-start;
   padding: 15px 30px;
   background-color: var(--bg-chart);
+  transition: background-color 0.3s;
+
   position: relative;
 }
 .grafico {
@@ -169,6 +171,7 @@ canvas {
   right: 0;
   top: 0;
   background-color: var(--bg-buttons-container);
+  transition: background-color 0.3s;
   border-radius: 0 35px 0 65px;
   width: 50%;
   height: 25%;
