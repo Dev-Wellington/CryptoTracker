@@ -47,7 +47,9 @@
   width: clamp(250px, 40%, 335px);
   height: clamp(200px, 40vh, 355px);
   border-radius: 35px;
-  background-color: var(--bg-profile)
+  background-color: var(--bg-profile);
+  transition: background-color 0.3s;
+
 }
 
 .user-profile__image {
