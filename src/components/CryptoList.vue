@@ -2,13 +2,24 @@
 import { ref, onMounted } from "vue";
 import axios from "axios";
 
+const props = defineProps({
+  darkMode: Boolean,
+});
+
 const cryptos = ref([]);
 const cryptosPerPage = ref(3);
 const page = ref(1);
 const totalLoaded = ref(0);
 const maxCryptos = 20;
-
 const apiKey = "CG-3odEqH1JGDWQMm24Nfk7PtMh";
+
+const getIconPath = (iconName) => {
+  const path = props.darkMode
+    ? new URL(`../assets/icons/dark/${iconName}.svg`, import.meta.url).href
+    : new URL(`../assets/icons/light/${iconName}.svg`, import.meta.url).href;
+  console.log(`Path for ${iconName}:`, path);
+  return path;
+};
 
 const fetchCryptos = async () => {
   if (totalLoaded.value >= maxCryptos) return;
@@ -80,7 +91,9 @@ onMounted(() => {
         </div>
         <div class="crypto-list__item-price"></div>
         <div class="crypto-list__item-options">
-          <button class="crypto-list__item-options-icon"></button>
+          <button class="crypto-list__item-options-icon">
+            <img :src="getIconPath('button')" alt="Options" />
+          </button>
         </div>
       </div>
     </div>
@@ -166,10 +179,11 @@ p {
   height: clamp(1rem, 5vw, 4rem);
   width: clamp(1rem, 5vw, 4rem);
   border: none;
-  background-color: transparent;
-  background-image: url("../assets/icons/light/button.svg");
-  background-repeat: no-repeat;
-  background-size: clamp(1rem, 5vw, 4rem) clamp(1rem, 5vw, 4rem);
+  background: transparent;
+  & img {
+    width: 100%;
+    height: 100%;
+  }
 }
 .crypto-list__item-options-icon:hover {
   filter: drop-shadow(0 0 1px var(--bg-list-item-hover-icon));
