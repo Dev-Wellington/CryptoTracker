@@ -25,7 +25,7 @@ const toggleDarkMode = () => {
   <div class="grid-container">
     <VerticalNavbar :darkMode="darkMode" @toggle-dark-mode="toggleDarkMode" class="verticalNavbar1" />
     <VerticalNavbar :darkMode="darkMode" class="verticalNavbar" />
-    <SearchBar v-model="moeda" class="searchBar" />
+    <SearchBar :darkMode="darkMode" v-model="moeda" class="searchBar" />
     <div class="main-content">
       <div class="left-section">
         <CryptoChart :moeda="moeda" :darkMode="darkMode" class="cryptoChart" />
