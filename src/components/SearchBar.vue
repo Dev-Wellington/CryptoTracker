@@ -1,34 +1,53 @@
 <template>
-  <form @submit.prevent="updateInput">
+  <form @submit.prevent="updateInput" class="search-form">
     <input
       type="text"
       placeholder="Search for a cryptocurrency (e.g., Polkadot)"
       v-model="localValue"
+      class="search-input"
     />
-    <button class="btn" type="submit"></button>
+    <button class="btn" type="submit">
+      <img :src="getIconPath('search')" alt="Search" class="search-icon" />
+    </button>
   </form>
 </template>
+
 <script setup>
 import { ref, watch } from "vue";
 
-const props = defineProps(["modelValue"]);
+const props = defineProps({
+  modelValue: {
+    type: String,
+    required: true,
+  },
+  darkMode: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+const getIconPath = (iconName) => {
+  return props.darkMode
+    ? new URL(`../assets/icons/dark/${iconName}.svg`, import.meta.url).href
+    : new URL(`../assets/icons/light/${iconName}.svg`, import.meta.url).href;
+};
+
 const emit = defineEmits(["update:modelValue"]);
 const localValue = ref("");
 
 const updateInput = () => {
-  emit("update:modelValue", localValue.value || props.modelValue);
+  emit("update:modelValue", localValue.value);
 };
 
 watch(
   () => props.modelValue,
   (newValue) => {
     if (!localValue.value) {
-      localValue.value = "";
+      localValue.value = newValue || "";
     }
   }
 );
 </script>
-
 
 <style lang="css" scoped>
 form {
@@ -40,7 +59,6 @@ form {
   background-color: var(--bg-search);
   padding: clamp(10px, 2vw, 20px);
   transition: background-color 0.3s;
-
 }
 
 input {
@@ -69,10 +87,11 @@ input::placeholder {
   height: clamp(18px, 3vw, 45px);
   cursor: pointer;
   background-color: transparent;
-  background-image: url("../assets/icons/search.svg");
-  background-repeat: no-repeat;
-  background-size: clamp(18px, 3vw, 45px) clamp(18px, 3vw, 45px);
   margin-right: clamp(10px, 2vw, 20px);
+  & img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .btn:hover {
