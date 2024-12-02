@@ -22,19 +22,17 @@ const toggleDarkMode = () => {
 </script>
 
 <template>
-  <button @click="toggleDarkMode">Toggle Dark Mode</button>
   <div class="grid-container">
-    <VerticalNavbar class="verticalNavbar1" />
-    <VerticalNavbar class="verticalNavbar" />
+    <VerticalNavbar :darkMode="darkMode" @toggle-dark-mode="toggleDarkMode" class="verticalNavbar1" />
+    <VerticalNavbar :darkMode="darkMode" class="verticalNavbar" />
     <SearchBar v-model="moeda" class="searchBar" />
-
     <div class="main-content">
       <div class="left-section">
         <CryptoChart :moeda="moeda" :darkMode="darkMode" class="cryptoChart" />
         <UserProfile class="userProfile" />
       </div>
       <div class="right-section">
-        <CryptoList class="cryptoList" />
+        <CryptoList :darkMode="darkMode" class="cryptoList" />
         <CryptoRanking class="cryptoRanking" />
       </div>
     </div>
@@ -51,6 +49,7 @@ const toggleDarkMode = () => {
   grid-template-rows: auto 1fr;
   height: 100vh;
   gap: 0;
+  transition: ease-in-out 0.3s;
 }
 .verticalNavbar {
   grid-area: verticalNavbar;
